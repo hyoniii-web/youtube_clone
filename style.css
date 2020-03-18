@@ -1,0 +1,226 @@
+:root {
+  /*Color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #065fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #606060;
+  --grey-light-color: #aeb0a9;
+
+  /*Size*/
+  --padding: 12px;
+  --avatar-size: 36px;
+
+  /*Font Size*/
+  --font-large: 1.2rem;
+  --font-medium: 1rem;
+  --font-small: 0.9rem;
+  --font-micro: 0.75rem;
+  --font-icon: 0.8rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+header .logo {
+  font-size: var(--font-large);
+}
+header .logoIcon {
+  color: var(--red-color);
+}
+
+header .icons .fa-search {
+  margin-right: var(--padding);
+}
+
+/* Video & Info*/
+.player {
+  position: sticky;
+  top: 0;
+  text-align: center;
+  background-color: var(--black-color);
+}
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.InfoandList > .info {
+  padding: var(--padding);
+}
+.info .metadata .hashTag {
+  display: flex;
+  color: var(--blue-color);
+  font-size: var(--font-small);
+}
+.info .metadata .hashTag li {
+  margin-right: var(--padding);
+}
+.info .metadata .videoTitle {
+  display: flex;
+}
+.info .metadata .videoTitle .title {
+  font-size: var(--font-medium);
+  margin-right: var(--padding);
+}
+.info .metadata .videoTitle .title.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.info .metadata .videoTitle .moreBtn {
+  height: 100%;
+  transition: all 500ms ease-in-out;
+  margin-top: 10px;
+  color: var(--grey-light-color);
+}
+.info .metadata .videoTitle .clicked {
+  transform: rotate(180deg);
+}
+.info .views {
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+  padding: var(--padding) 0;
+}
+
+/*Action Button*/
+.info .actions {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--padding) auto;
+  width: 90%;
+}
+
+.info .actions button {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-large);
+  color: var(--grey-dark-color);
+}
+
+.info .actions button .icon {
+  margin: 0 auto;
+  margin-bottom: calc(var(--padding) / 2);
+  display: inline-block;
+}
+.info .actions button .iconText {
+  font-size: var(--font-small);
+}
+
+.info .actions button .active {
+  color: var(--blue-color);
+}
+
+/*Channel Description*/
+.channel {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+  padding: var(--padding) 0;
+}
+.channel .metadata {
+  display: flex;
+  align-items: center;
+}
+.channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 var(--padding);
+}
+
+.channel .metadata img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
+.channel .metadata .name {
+  font-size: var(--font-medium);
+}
+.channel .metadata .subscriber {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+.channel .subscribe {
+  text-transform: uppercase;
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+/*Play list*/
+.playList {
+  padding: 0 var(--padding);
+}
+.playList .upNext {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+}
+.playList .item {
+  display: flex;
+  margin-top: var(--padding);
+}
+.playList .item .img {
+  flex: 1 1 35%;
+  margin-right: var(--padding);
+}
+.playList .item .img img {
+  width: 100%;
+}
+.playList .item .info {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+}
+.playList .item .moreView {
+  flex: 1 1 5%;
+  color: var(--grey-light-color);
+}
+.playList .item .info .listTitle {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+}
+.playList .item .info .channelName {
+  font-size: var(--font-small);
+}
+
+.InfoandList {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .InfoandList {
+    flex-direction: row;
+    margin: var(--padding);
+  }
+}

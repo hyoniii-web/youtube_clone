@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <title>Youtube Clone</title>
+  </head>
+  <body>
+    <!--Header: 로고, 상단 아이콘 영역-->
+    <header>
+      <div class="logo">
+        <span class="fab fa-youtube logoIcon"></span>
+        <span class="logoTitle">Youtube</span>
+      </div>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-ellipsis-v"></i>
+      </div>
+    </header>
+
+    <!--Video-->
+    <section class="player">
+      <video controls>
+        <source src="video/video.mp4" type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+        <!--영상이 재생되지 않을 때-->
+      </video>
+    </section>
+
+    <div class="InfoandList">
+      <!--Video infomation-->
+      <section class="info">
+        <div class="metadata">
+          <ul class="hashTag">
+            <li>#Kim Coder</li>
+            <li>#Portfolio</li>
+            <li>#Youtube</li>
+          </ul>
+          <div class="videoTitle">
+            <span class="title clamp">
+              Creating Youtube Clone Website! HTML, CSS로 골격을 만들고
+              javaScript로 동적 구현하며 Sass로 CSS코드를 정리하여 유튜브
+              클론사이트를 만들어 보자. 포트폴리오 만들어 보기.
+            </span>
+            <button class="moreBtn clicked ">
+              <span class="fas fa-caret-up"></span>
+            </button>
+          </div>
+          <div class="views">
+            <span class="views">2.8M views · 2 weeks ago</span>
+          </div>
+        </div>
+        <!--Action icons-->
+        <ul class="actions">
+          <li>
+            <button>
+              <span class="active fas fa-thumbs-up icon"></span>
+              <span class="iconText">1K</span>
+            </button>
+          </li>
+          <li>
+            <button>
+              <span class="fas fa-thumbs-down icon"></span>
+              <span class="iconText">6</span>
+            </button>
+          </li>
+          <li>
+            <button>
+              <span class="fas fa-share icon"></span>
+              <span class="iconText">Share</span>
+            </button>
+          </li>
+          <li>
+            <button>
+              <span class="fas fa-plus icon"></span>
+              <span class="iconText">Save</span>
+            </button>
+          </li>
+          <li>
+            <button>
+              <span class="fab fa-font-awesome-flag icon"></span
+              >
+              <span class="iconText">Report</span>
+            </button>
+          </li>
+        </ul>
+        <!-- Channel info-->
+        <div class="channel">
+          <div class="metadata">
+            <img src="images/profileImage.jpg" alt="avatar" />
+            <div class="info">
+              <span class="name">Kim Coder</span>
+              <span class="subscriber">1K subscribers</span>
+            </div>
+          </div>
+          <button class="subscribe">subscribe</button>
+        </div>
+      </section>
+      <script type="text/javascript" src="main.js" /></script>
+      <!--Next play list-->
+      <section class="playList">
+        <div class="listBox">
+          <span class="upNext">Up next</span>
+          <ul>
+            <li class="item">
+              <div class="img">
+                <img src="images/thumb.jpg" alt="playlist1" />
+              </div>
+              <div class="info">
+                <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
+                <span class="channelName">김코더</span>
+                <span class="views">1K</span>
+              </div>
+              <span class="moreView fas fa-ellipsis-v"></span>
+            </li>
+            <li class="item">
+              <div class="img">
+                <img src="images/thumb.jpg" alt="playlist1" />
+              </div>
+              <div class="info">
+                <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
+                <span class="channelName">김코더</span>
+                <span class="views">1K</span>
+              </div>
+              <span class="moreView fas fa-ellipsis-v"></span>
+            </li>
+            <li class="item">
+              <div class="img">
+                <img src="images/thumb.jpg" alt="playlist1" />
+              </div>
+              <div class="info">
+                <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
+                <span class="channelName">김코더</span>
+                <span class="views">1K</span>
+              </div>
+              <span class="moreView fas fa-ellipsis-v"></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
