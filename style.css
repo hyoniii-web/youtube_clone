@@ -57,8 +57,39 @@ header .logoIcon {
   color: var(--red-color);
 }
 
-header .icons .fa-search {
-  margin-right: var(--padding);
+/*search bar*/
+.search {
+  display: inline-block;
+  cursor: pointer;
+}
+.search .fa-times {
+  display: none;
+}
+.search.searching input {
+  width: 70%;
+  opacity: 1;
+}
+.search.searching .fa-search {
+  display: none;
+}
+.search.searching .fa-times {
+  display: block;
+}
+.search input {
+  display: none;
+  position: absolute;
+  top: 8px;
+  width: 0px;
+  right: 30px;
+  display: block;
+  -webkit-apperance: none;
+  height: 30px;
+  opacity: 0;
+  line-height: 35px;
+  transition: all 400ms;
+}
+.search input:focus {
+  outline: none;
 }
 
 /* Video & Info*/
