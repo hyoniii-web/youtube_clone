@@ -8,7 +8,10 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
     <link type="text/css" rel="stylesheet" href="style.css" />
     <title>Youtube Clone</title>
   </head>
@@ -19,143 +22,204 @@
         <span class="fab fa-youtube logoIcon"></span>
         <span class="logoTitle">Youtube</span>
       </div>
-      
-       <!--searchbox: 검색창-->
-        <div class="search">
-          <span class="icon">
-            <i class="fas fa-search"></i>
-            <i class="fa fa-times"></i>
-          </span>
-          <form>
-            <input type="search" placeholder="Search">
-          </form>
-        </div>
+
+      <!--searchbox: 검색창-->
+      <div class="search">
+        <span class="icon">
+          <i class="fas fa-search"></i>
+          <i class="fa fa-times"></i>
+        </span>
+        <form>
+          <input type="search" placeholder="제이쿼리로 구현했습니다." />
+        </form>
+      </div>
     </header>
-     <!-- jquery load -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="search.js"></script>
+    <!-- jquery load -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".icon").click(function() {
+          $(".search").toggleClass("searching");
+        });
+      });
+    </script>
 
+  <div class="main">
+    <div class="videoInfo">
+      <!--Video-->
+      <section class="player">
+        <video controls>
+          <source src="video/video.mp4" type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+          <!--영상이 재생되지 않을 때-->
+        </video>
+      </section>
 
-    <!--Video-->
-    <section class="player">
-      <video controls>
-        <source src="video/video.mp4" type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
-        <!--영상이 재생되지 않을 때-->
-      </video>
-    </section>
-
-    <div class="InfoandList">
+      <!--Info & UpNext list-->
+      
       <!--Video infomation-->
       <section class="info">
-        <div class="metadata">
-          <ul class="hashTag">
-            <li>#Kim Coder</li>
-            <li>#Portfolio</li>
-            <li>#Youtube</li>
-          </ul>
-          <div class="videoTitle">
-            <span class="title clamp">
-              Creating Youtube Clone Website! HTML, CSS로 골격을 만들고
-              javaScript로 동적 구현하며 Sass로 CSS코드를 정리하여 유튜브
-              클론사이트를 만들어 보자. 포트폴리오 만들어 보기.
-            </span>
-            <button class="moreBtn clicked ">
-              <span class="fas fa-caret-up"></span>
-            </button>
-          </div>
-          <div class="views">
-            <span class="views">2.8M views · 2 weeks ago</span>
-          </div>
-        </div>
-        <!--Action icons-->
-        <ul class="actions">
-          <li>
-            <button>
-              <span class="active fas fa-thumbs-up icon"></span>
-              <span class="iconText">1K</span>
-            </button>
-          </li>
-          <li>
-            <button>
-              <span class="fas fa-thumbs-down icon"></span>
-              <span class="iconText">6</span>
-            </button>
-          </li>
-          <li>
-            <button>
-              <span class="fas fa-share icon"></span>
-              <span class="iconText">Share</span>
-            </button>
-          </li>
-          <li>
-            <button>
-              <span class="fas fa-plus icon"></span>
-              <span class="iconText">Save</span>
-            </button>
-          </li>
-          <li>
-            <button>
-              <span class="fab fa-font-awesome-flag icon"></span
-              >
-              <span class="iconText">Report</span>
-            </button>
-          </li>
-        </ul>
-        <!-- Channel info-->
-        <div class="channel">
           <div class="metadata">
-            <img src="images/profileImage.jpg" alt="avatar" />
-            <div class="info">
-              <span class="name">Kim Coder</span>
-              <span class="subscriber">1K subscribers</span>
+            <ul class="hashTag">
+              <li>#Kim Coder</li>
+              <li>#Portfolio</li>
+              <li>#Youtube</li>
+            </ul>
+            <div class="videoTitle">
+              <span class="title clamp">
+                Creating Youtube Clone Website! HTML, CSS로 골격을 만들고
+                javaScript로 동적 구현하며 Sass로 CSS코드를 정리하여 유튜브
+                클론사이트를 만들어 보자. 포트폴리오 만들어 보기.
+              </span>
+              <button class="moreBtn clicked ">
+                <span class="fas fa-caret-up"></span>
+              </button>
+            </div>
+            <div class="views">
+              <span class="views">2800 views · 2 weeks ago</span>
             </div>
           </div>
-          <button class="subscribe">subscribe</button>
-        </div>
+          <script>
+            const moreBtn = document.querySelector(".moreBtn");
+            const title = document.querySelector(".title");
+
+            moreBtn.addEventListener("click", () => {
+              moreBtn.classList.toggle("clicked");
+              title.classList.toggle("clamp");
+            });
+          </script>
+          <!--Action icons-->
+          <ul class="actions">
+            <li>
+              <button id="activeLike" class="likeVote">
+                <span class="fas fa-thumbs-up icon"></span>
+                <span class="iconText likeNumber">100</span>
+              </button>
+            </li>
+            <li>
+              <button id="activeDislike" class="dislikeVote">
+                <span class="fas fa-thumbs-down icon"></span>
+                <span class="iconText dislikeNumber">16</span>
+              </button>
+            </li>
+            <li>
+              <button onclick="alert('준비중입니다.')">
+                <span class="fas fa-share icon"></span>
+                <span class="iconText">Share</span>
+              </button>
+            </li>
+            <li>
+              <button onclick="alert('준비중입니다.')">
+                <span class="fas fa-plus icon"></span>
+                <span class="iconText">Save</span>
+              </button>
+            </li>
+            <li>
+              <button onclick="alert('준비중입니다.')">
+                <span class="fab fa-font-awesome-flag icon"></span>
+                <span class="iconText">Report</span>
+              </button>
+            </li>
+          </ul>
+          <script src="userVote.js"></script>
+          <!-- Channel info-->
+          <div class="channel">
+            <div class="metadata">
+              <img src="images/profileImage.jpg" alt="avatar" />
+              <div class="info">
+                <span class="name">Kim Coder</span>
+                <span class="subscriber">900 subscribers</span>
+              </div>
+            </div>
+            <button class="subscribe" id="subscriveBtn" onclick="subscribe()">
+              구독
+            </button>
+            <script>
+              function subscribe() {
+                var x = document.getElementById("subscriveBtn");
+                if (x.innerHTML === "구독중") {
+                  x.innerHTML = "구독";
+                  x.style.backgroundColor = "#ff0000";
+                } else {
+                  x.innerHTML = "구독중";
+                  x.style.backgroundColor = "#aeb0a9";
+                }
+              }
+            </script>
+          </div>
       </section>
-      <script type="text/javascript" src="main.js" /></script>
+    </div>
+
       <!--Next play list-->
       <section class="playList">
         <div class="listBox">
-          <span class="upNext">Up next</span>
+          <span class="upNext">다음 동영상</span>
           <ul>
-            <li class="item">
+            <li class="item"  onclick="alert('마우스 오버 시 나타나는 more 버튼을 눌러주세요. 재생되는 동영상은 아닙니다.')">
               <div class="img">
                 <img src="images/thumb.jpg" alt="playlist1" />
               </div>
               <div class="info">
                 <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
                 <span class="channelName">김코더</span>
-                <span class="views">1K</span>
+                <span class="views">조회수 1630회&nbsp·&nbsp1개월 전</span>
               </div>
-              <span class="moreView fas fa-ellipsis-v"></span>
+              <div onclick="addList()">
+                <i class="moreView fas fa-ellipsis-v" id="iconOn"></i>
+                <div id="addList">
+                  <ul>
+                    <li>비활성화 목록</li>
+                    <li>비활성화 목록</li>
+                    <li>비활성화 목록</li>
+                  </ul>
+                </div>
+              </div>
             </li>
-            <li class="item">
+
+            <li class="item" onclick="alert('비활성화된 버튼입니다.')">
               <div class="img">
                 <img src="images/thumb.jpg" alt="playlist1" />
               </div>
               <div class="info">
                 <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
                 <span class="channelName">김코더</span>
-                <span class="views">1K</span>
+                <span class="views">조회수 1630회&nbsp·&nbsp1개월 전</span>
               </div>
-              <span class="moreView fas fa-ellipsis-v"></span>
+              <div>
+                <i class="moreView fas fa-ellipsis-v"></i>
+              </div>
             </li>
-            <li class="item">
+
+            <li class="item" onclick="alert('비활성화된 버튼입니다.')">
               <div class="img">
                 <img src="images/thumb.jpg" alt="playlist1" />
               </div>
               <div class="info">
                 <span class="listTitle">프론트엔드 포트폴리오 만들기</span>
                 <span class="channelName">김코더</span>
-                <span class="views">1K</span>
+                <span class="views">조회수 1630회&nbsp·&nbsp1개월 전</span>
               </div>
-              <span class="moreView fas fa-ellipsis-v"></span>
+              <div>
+                <i class="moreView fas fa-ellipsis-v"></i>
+              </div>
+            </li>
             </li>
           </ul>
         </div>
+        <script>
+          function addList() {
+            var add = document.getElementById("addList");
+            var icon = document.getElementById("iconOn");
+            if (add.style.display === "block") {
+              add.style.display = "none";
+              icon.style.visibility = "initial";
+            } else {
+              add.style.display = "block";
+              icon.style.visibility = "visible";
+            }
+          }
+        </script>
       </section>
-    </div>
+   </div> 
   </body>
 </html>

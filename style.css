@@ -4,19 +4,27 @@
   --black-color: #140a00;
   --blue-color: #065fd4;
   --red-color: #ff0000;
-  --grey-dark-color: #606060;
-  --grey-light-color: #aeb0a9;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+  --bgcolor: #f9f9f9;
 
   /*Size*/
-  --padding: 12px;
+  --padding: 1.2rem;
+  --padding-icon-width: 1.4rem;
+  --padding-icon-height: 10px;
   --avatar-size: 36px;
+  --margin-small: 0.4rem;
+  --margin-medium: 1rem;
 
   /*Font Size*/
   --font-large: 1.2rem;
   --font-medium: 1rem;
-  --font-small: 0.9rem;
+  --font-small: 0.8rem;
   --font-micro: 0.75rem;
-  --font-icon: 0.8rem;
+
+  /*font-weight*/
+  --font-logo: 600;
+  --font-title: 500;
 }
 
 * {
@@ -28,6 +36,8 @@
 body {
   font-family: "Roboto", sans-serif;
   font-family: "Nanum Gothic", sans-serif;
+  background-color: var(--bgcolor);
+  position: relative;
 }
 
 ul {
@@ -47,11 +57,15 @@ header {
   display: flex;
   justify-content: space-between;
   padding: var(--padding);
-  background-color: var(--black-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--black-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 header .logo {
   font-size: var(--font-large);
+  font-weight: var(--font-logo);
 }
 header .logoIcon {
   color: var(--red-color);
@@ -66,7 +80,7 @@ header .logoIcon {
   display: none;
 }
 .search.searching input {
-  width: 70%;
+  width: 60%;
   opacity: 1;
 }
 .search.searching .fa-search {
@@ -78,9 +92,9 @@ header .logoIcon {
 .search input {
   display: none;
   position: absolute;
-  top: 8px;
+  top: 13px;
   width: 0px;
-  right: 30px;
+  right: 40px;
   display: block;
   -webkit-apperance: none;
   height: 30px;
@@ -94,19 +108,17 @@ header .logoIcon {
 
 /* Video & Info*/
 .player {
-  position: sticky;
-  top: 0;
   text-align: center;
-  background-color: var(--black-color);
+  background-color: var(--bgcolor);
 }
 .player video {
   width: 100%;
   height: 100%;
-  max-width: 1000px;
+  max-width: 768px;
 }
 
-.InfoandList > .info {
-  padding: var(--padding);
+.videoInfo > .info {
+  padding: var(--padding) 0;
 }
 .info .metadata .hashTag {
   display: flex;
@@ -120,8 +132,10 @@ header .logoIcon {
   display: flex;
 }
 .info .metadata .videoTitle .title {
-  font-size: var(--font-medium);
+  font-size: var(--font-large);
+  line-height: 1.8rem;
   margin-right: var(--padding);
+  font-weight: var(--font-title);
 }
 .info .metadata .videoTitle .title.clamp {
   display: -webkit-box;
@@ -132,8 +146,9 @@ header .logoIcon {
 .info .metadata .videoTitle .moreBtn {
   height: 100%;
   transition: all 500ms ease-in-out;
-  margin-top: 10px;
-  color: var(--grey-light-color);
+  margin-top: 1.4rem;
+  color: var(--grey-dark-color);
+  z-index: 1;
 }
 .info .metadata .videoTitle .clicked {
   transform: rotate(180deg);
@@ -141,7 +156,6 @@ header .logoIcon {
 .info .views {
   font-size: var(--font-micro);
   color: var(--grey-dark-color);
-  padding: var(--padding) 0;
 }
 
 /*Action Button*/
@@ -166,10 +180,6 @@ header .logoIcon {
 }
 .info .actions button .iconText {
   font-size: var(--font-small);
-}
-
-.info .actions button .active {
-  color: var(--blue-color);
 }
 
 /*Channel Description*/
@@ -199,26 +209,28 @@ header .logoIcon {
   font-size: var(--font-medium);
 }
 .channel .metadata .subscriber {
-  font-size: var(--font-small);
+  font-size: var(--font-micro);
   color: var(--grey-dark-color);
 }
 .channel .subscribe {
-  text-transform: uppercase;
-  color: var(--red-color);
+  padding: var(--padding-icon-height) var(--padding-icon-width);
+  color: var(--white-color);
+  background-color: var(--red-color);
   font-size: var(--font-medium);
+  border-radius: 5%;
 }
 
 /*Play list*/
-.playList {
-  padding: 0 var(--padding);
-}
+
 .playList .upNext {
   font-size: var(--font-medium);
-  color: var(--grey-dark-color);
+  color: var(--black-color);
 }
 .playList .item {
   display: flex;
+  flex-direction: row;
   margin-top: var(--padding);
+  position: relative;
 }
 .playList .item .img {
   flex: 1 1 35%;
@@ -228,30 +240,65 @@ header .logoIcon {
   width: 100%;
 }
 .playList .item .info {
-  flex: 1 1 60%;
+  flex: 1 1 55%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  position: relative;
 }
-.playList .item .moreView {
-  flex: 1 1 5%;
-  color: var(--grey-light-color);
+.item .moreView {
+  flex: 1 1 10%;
+  color: var(--grey-dark-color);
+  visibility: hidden;
+}
+.playList .item:hover .moreView {
+  visibility: visible;
+  cursor: pointer;
 }
 .playList .item .info .listTitle {
   font-size: var(--font-medium);
-  color: var(--grey-dark-color);
+  color: var(--black-color);
+  margin-bottom: var(--margin-small);
+}
+.item div#addList {
+  display: none;
+  color: var(--black-color);
+  font-size: var(--font-small);
+  border: 1px solid var(--grey-light-color);
+  z-index: 58;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background-color: var(--white-color);
+}
+#addList li {
+  border-bottom: 1px solid var(--grey-light-color);
+  padding: var(--padding);
+}
+#addList li:last-child {
+  border-bottom: none;
 }
 .playList .item .info .channelName {
   font-size: var(--font-small);
+  line-height: calc(var(--font-small) * 1.8);
+  color: var(--grey-dark-color);
 }
 
-.InfoandList {
+.main {
   display: flex;
   flex-direction: column;
+  padding: 0 var(--padding-icon-width);
 }
 
-@media screen and (min-width: 768px) {
-  .InfoandList {
+@media (min-width: 1000px) {
+  .main {
     flex-direction: row;
-    margin: var(--padding);
+  }
+  .videoInfo {
+    flex: 1 1 60%;
+  }
+  .playList {
+    flex: 1 1 40%;
+    padding-left: var(--padding);
   }
 }
